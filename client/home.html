@@ -1,0 +1,88 @@
+<template name="home">
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flex-container > * {
+    padding: 10px;
+    flex: 1 100%;
+}
+
+.main {
+    text-align: left;
+    background: AliceBlue
+}
+
+.header {background: Lavender;}
+.footer {background: Lavender;}
+.aside2 {background: Lavender;}
+
+
+@media all and (min-width: 600px) {
+    .aside { flex: 1 auto; }
+}
+
+@media all and (min-width: 800px) {
+    .main    { flex: 3 0px; }
+    .aside2 { order: 2; }
+    .main    { order: 1; }
+
+    .footer  { order: 4; }
+header {
+    font-size: 60px;
+		font-family: "Verdana"
+}
+flex-container {
+    font-family: "Verdana"
+}
+}
+</style>
+<div class="flex-container">
+  <header class="header">MEALSHARE</header>
+  <article class="main">
+		<p>MEALSHARE helps to connect you to what you need.</p>
+		<p>Are you a cook? Post a listing detailing what ingredients you need to create a large meal.</p>
+		<p>Hungry? Find a listing to contribute ingredients to and have a homecooked meal.</p>
+		<h1>Cooks near me:</h1>
+		<p>Enter your address below.</p>
+		<input type="text" cols="40">
+		<br>
+		<br>
+		<img src="http://static.wixstatic.com/media/d0f16d_2a74bb0f4f9d438b887101d51113d046~mv2_d_2500_1563_s_2.jpg" width="100%" alt="Volen Center"/>
+		<h2>Post a listing:</h2>
+		<button class = "btn btn-danger btn-lg">Post</button>
+		<br>
+		<br>
+  </article>
+  <aside class="aside aside2">
+		<h1>Top trending listings:</h1>
+		<ol>
+			<li>Stephen H.</li>
+			<li>Lucian C.</li>
+			<li>Tim H.</li>
+			<li>Claire S.</li>
+			<li>Stephanie H.</li>
+		</ol>
+		<br>
+		<br>
+		<img src="images/food.jpg" width="100%" alt="food image"/>
+
+	</aside>
+
+  <footer class="footer">Made by: Claire Sun</footer>
+</div>
+
+
+<!--
+	     This is a comment ... Lets create another row with 3 columns
+	    and a heading and paragraph and image in each
+-->
+<p>Take a look at our <a href="http://www.yahoo.com">sponsor.</a></p>
+
+</template>
