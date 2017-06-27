@@ -2,6 +2,11 @@ Template.showpeople.helpers({
   peoplelist() {return People.find()},
 })
 
+Template.body.onCreated(function() {
+  Meteor.subscribe('people');
+});
+
+
 Template.addperson.events({
   'click button'(elt,instance){
     const name = instance.$('#nombre').val();
@@ -61,7 +66,7 @@ Template.addpost.events({
     var listing = {des:des};
     //People.insert({name:name, food:food, date:date, num:num, owner:Meteor.userId(), createAt:new Date()});
     //People.insert({name,birthyear})
-    
+
     Meteor.call('listing.insert',listing,
   );
   }
