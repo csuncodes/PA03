@@ -1,0 +1,91 @@
+<template name="about">
+<h1>Make a Post:</h1>
+
+
+<table class="table table-striped">
+
+	<tbody>
+		{{#each person in team}}
+  		{{> teamrow t=person}}
+		{{/each}}
+	</tbody>
+</table>
+
+
+
+
+<p>What kind of food?</p>
+<select>
+  <option>Chinese</option>
+  <option>Japanese</option>
+	<option>Indian</option>
+	<option>American</option>
+	<option>Italian</option>
+</select>
+<br>
+<br>
+<form>
+  <input type="radio" name="food" value="vegan" checked> Vegan<br>
+  <input type="radio" name="food" value="vegetarian"> Vegetarian<br>
+  <input type="radio" name="food" value="neither"> Neither
+</form>
+<br>
+
+<p>Get together date:</p>
+<form>
+  <input type="date" name="mealdate">
+</form>
+<br>
+<form action="/action_page.php">
+  Select your favorite color:
+  <input type="color" name="favcolor" value="#ff0000">
+  <input type="submit">
+</form>
+<br>
+<p>Write a description of the dish(es) you'll be making and the ingredients you may need.</p>
+{{> addpost}}
+<br>
+<hr>
+{{> showpost}}
+</template>
+<template name="showpost">
+  {{#if currentUser}}
+    {{#each x in postlist}}
+    <li>{{>postrow post=x}}</li>
+    {{/each}}
+  {{else}}
+  <h1> You must log in to see the info!</h1>
+  {{/if}}
+</template>
+
+<template name="addpost">
+  Description: <input type="textarea" placeholder="Description here" id ="des">
+	<br>
+  <br>
+	<form>
+	  <div>
+	    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+	    <label for="subscribeNews">Did you read our terms of service?</label>
+	  </div>
+	</form>
+  <br>
+  <br>
+  <button id="addpost" class="btn btn-primary">
+    Post
+  </button>
+</template>
+
+<template name="postrow">
+  {{post.des}}
+
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+
+</template>
+
+
+<template name="teamrow">
+   <tr>
+   	  <td>{{t.name}}</td>
+   	  <td>{{t.email}}</td>
+   </tr>
+</template>

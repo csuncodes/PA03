@@ -1,0 +1,71 @@
+<head>
+  <title>DemoApp 2017</title>
+</head>
+
+<template name="main">
+  <h1>Main page</h1>
+
+</template>
+
+<template name="contactinfo">
+<h1>Listings</h1>
+<p>Listings near me:</p>
+<p>Sort by:</p>
+<select>
+  <option>Distance</option>
+  <option>Vegan</option>
+  <option>Vegetarian</option>
+  <option>Date</option>
+  <option># of people</option>
+</select>
+<br>
+<br>
+{{> addperson}}
+<hr>
+{{> showpeople}}
+</template>
+
+<template name="layout">
+  <div class="container">
+  <h1>DemoApp 2017</h1>
+  {{> yield}}
+  <hr>
+  <a href="/">home</a>
+  <a href="/contactinfo">about</a>
+  <a href="/info">info</a>
+  {{> loginButtons}}
+  </div>
+</template>
+
+<template name="Info">
+  <h1>This is the info page!</h1>
+</template>
+
+<template name="showpeople">
+  {{#if currentUser}}
+    {{#each p in peoplelist}}
+    <li>{{>personrow person=p}}</li>
+    {{/each}}
+  {{else}}
+  <h1> You must log in to see the info!</h1>
+  {{/if}}
+</template>
+
+<template name="addperson">
+  Name: <input type="text" placeholder="Your Name" id ="nombre">
+  Food Specialty: <input type="text" placeholder="Food Specialty" id="food">
+  Date: <input type="text" placeholder="mm/dd/yyyy" id = "date">
+  Number of People: <input type="text" placeholder="00" id="num">
+  <br>
+  <br>
+  <button id="addperson" class="btn btn-primary">
+    Add a listing
+  </button>
+</template>
+
+<template name="personrow">
+  {{person.name}}--{{person.food}}--{{person.date}}--{{person.num}}
+  {{#if isOwner}}
+  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+  {{/if}}
+</template>
