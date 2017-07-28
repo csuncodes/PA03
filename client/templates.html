@@ -10,14 +10,7 @@
 <template name="contactinfo">
 <h1>Listings</h1>
 <p>Listings near me:</p>
-<p>Sort by:</p>
-<select>
-  <option>Distance</option>
-  <option>Vegan</option>
-  <option>Vegetarian</option>
-  <option>Date</option>
-  <option># of people</option>
-</select>
+
 <br>
 <br>
 {{> addperson}}
@@ -52,12 +45,14 @@
 </template>
 
 <template name="addperson">
+
   Name: <input type="text" placeholder="Your Name" id ="nombre">
   Food Specialty: <input type="text" placeholder="Food Specialty" id="food">
   Date: <input type="text" placeholder="mm/dd/yyyy" id = "date">
   Number of People: <input type="text" placeholder="00" id="num">
   <br>
   <br>
+  <p>Gathering larger than expected? Simply fillout your information with a different number of people to update the number of people for your event!</p>
   <button id="addperson" class="btn btn-primary">
     Add a listing
   </button>

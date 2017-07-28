@@ -1,5 +1,5 @@
 <template name="home">
-<style>
+<!--<style>
 .flex-container {
     display: -webkit-flex;
     display: flex;
@@ -16,12 +16,13 @@
 
 .main {
     text-align: left;
-    background: AliceBlue
+    background: #ffff99;
+    font-family: "Papyrus"
 }
 
-.header {background: Lavender;}
-.footer {background: Lavender;}
-.aside2 {background: Lavender;}
+.header {background: #ffcc00;}
+.footer {background: #ffcc00;}
+.aside2 {background: #ffff99;}
 
 
 @media all and (min-width: 600px) {
@@ -36,27 +37,42 @@
     .footer  { order: 4; }
 header {
     font-size: 60px;
-		font-family: "Verdana"
+		font-family: "Papyrus"
 }
 flex-container {
-    font-family: "Verdana"
+    font-family: "Papyrus"
 }
 }
 </style>
+-->
 <div class="flex-container">
-  <header class="header">MEALSHARE</header>
+  <h1>MEALSHARE</h1>
+  <br>
   <article class="main">
 		<p>MEALSHARE helps to connect you to what you need.</p>
 		<p>Are you a cook? Post a listing detailing what ingredients you need to create a large meal.</p>
 		<p>Hungry? Find a listing to contribute ingredients to and have a homecooked meal.</p>
 		<h1>Cooks near me:</h1>
 		<p>Enter your address below.</p>
-		<input type="text" cols="40">
+
+		<input type="text" name = "address" cols="40">
+    <form action="/contactinfo">
+        <input type="submit" value="Search" />
+    </form>
+
+
+    <script>
+    var add = document.myForm.address.value;
+    document.getElementById("demo").innerHTML = add;
+    </script>
+      <p id="demo"></p>
 		<br>
 		<br>
 		<img src="http://static.wixstatic.com/media/d0f16d_2a74bb0f4f9d438b887101d51113d046~mv2_d_2500_1563_s_2.jpg" width="100%" alt="Volen Center"/>
 		<h2>Post a listing:</h2>
-		<button class = "btn btn-danger btn-lg">Post</button>
+    <form action="/about">
+        <input type="submit" value="Post" />
+    </form>
 		<br>
 		<br>
   </article>

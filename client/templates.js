@@ -25,7 +25,7 @@ Template.addperson.events({
     var chore = {name:name, food:food, date:date, num:num, owner:Meteor.userId(), createAt:new Date()};
     //People.insert({name:name, food:food, date:date, num:num, owner:Meteor.userId(), createAt:new Date()});
     //People.insert({name,birthyear})
-    Meteor.call('chore.insert',chore);
+    Meteor.call('chore.update',chore);
   }
 })
 Template.personrow.helpers({

@@ -14,7 +14,7 @@
 
 
 
-<p>What kind of food?</p>
+<p>What kind of food do you like to cook?</p>
 <select>
   <option>Chinese</option>
   <option>Japanese</option>
@@ -24,6 +24,7 @@
 </select>
 <br>
 <br>
+<p>Do you have specific diet preferences?</p>
 <form>
   <input type="radio" name="food" value="vegan" checked> Vegan<br>
   <input type="radio" name="food" value="vegetarian"> Vegetarian<br>
@@ -31,7 +32,7 @@
 </form>
 <br>
 
-<p>Get together date:</p>
+<p>When's your Birthday?:</p>
 <form>
   <input type="date" name="mealdate">
 </form>
@@ -42,7 +43,7 @@
   <input type="submit">
 </form>
 <br>
-<p>Write a description of the dish(es) you'll be making and the ingredients you may need.</p>
+<p>Write a description about yourself:</p>
 {{> addpost}}
 <br>
 <hr>
@@ -70,9 +71,23 @@
 	</form>
   <br>
   <br>
-  <button id="addpost" class="btn btn-primary">
-    Post
+  <button id="addpost" class="btn btn-primary" onclick="myFunction()">
+    SUBMIT
   </button>
+	<script>
+
+					 function myFunction() {
+							 var change = document.getElementById("addpost");
+							 if (change.innerHTML == "SUBMIT")
+							 {
+									 change.innerHTML = "SAVED";
+							 }
+							 else {
+									 change.innerHTML = "SUBMIT";
+							 }
+					 }
+
+	 </script>
 </template>
 
 <template name="postrow">
