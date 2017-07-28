@@ -1,14 +1,18 @@
+
 Template.chat.onCreated(function() {
   Meteor.subscribe('chats');
 });
-
 
 Template.chat.helpers({
   chatlines: function(){
     // return the last five chats
     // sorted by when they were created (most recent, first)
     return Chats.find({},
+
                       {limit:50,
+
+                      {limit:5,
+
                         sort: {createdAt: -1}})},
 
 })
@@ -20,7 +24,11 @@ Template.chat.events({
     console.log("the button was clicked")
     const theText = $(".js-chatinput").val();  // read the user's chat text ...
     const chatline = {text:theText, createdAt:new Date(), createdBy:Meteor.userId()};
+
     Meteor.call('chatlog.insert', chatline);
+
+    Chats.insert(chatline);
+
   },
 
 })

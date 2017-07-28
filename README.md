@@ -1,3 +1,4 @@
 # PA03
+The current version for the PA03 assignment for Tim Hickey's web development course. 
 
-Updated files for PA03. Currently, does not load without the node_modules folder because github said that this folder is too large to load. I assume you have node_modules on your own machine to load the files. 
+The included CSS for the app is written as inline CSS in the home.html file.
