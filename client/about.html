@@ -1,19 +1,10 @@
 <template name="about">
-<h1>Make a Post:</h1>
-
-
-<table class="table table-striped">
-
-	<tbody>
-		{{#each person in team}}
-  		{{> teamrow t=person}}
-		{{/each}}
-	</tbody>
-</table>
-
-
-
-
+<h1>Make a Profile:</h1>
+<p>What's your name?</p>
+<form>
+  <input type="text" id="name">
+</form>
+<br>
 <p>What kind of food do you like to cook?</p>
 <select>
   <option>Chinese</option>
@@ -47,17 +38,9 @@
 {{> addpost}}
 <br>
 <hr>
-{{> showpost}}
+
 </template>
-<template name="showpost">
-  {{#if currentUser}}
-    {{#each x in postlist}}
-    <li>{{>postrow post=x}}</li>
-    {{/each}}
-  {{else}}
-  <h1> You must log in to see the info!</h1>
-  {{/if}}
-</template>
+
 
 <template name="addpost">
   Description: <input type="textarea" placeholder="Description here" id ="des">
@@ -78,29 +61,11 @@
 
 					 function myFunction() {
 							 var change = document.getElementById("addpost");
-							 if (change.innerHTML == "SUBMIT")
-							 {
+
 									 change.innerHTML = "SAVED";
-							 }
-							 else {
-									 change.innerHTML = "SUBMIT";
-							 }
+
 					 }
 
 	 </script>
-</template>
 
-<template name="postrow">
-  {{post.des}}
-
-  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-
-</template>
-
-
-<template name="teamrow">
-   <tr>
-   	  <td>{{t.name}}</td>
-   	  <td>{{t.email}}</td>
-   </tr>
 </template>
